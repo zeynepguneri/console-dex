@@ -2,8 +2,6 @@ import AuthManager from "./src/managers/AuthManager.js";
 import inquirer from "inquirer";
 import MainMenu from "./src/menus/MainMenu.js";
 
-AuthManager.init();
-
 console.log("Hello, Welcome to ITUChain!");
 
 async function startApp() {

@@ -6,11 +6,6 @@ class AuthManager {
     this.currentWallet = null;
   }
 
-  init() {
-    this.loggedIn = false;
-    this.currentWallet = null;
-  }
-
   login(secretPhrase) {
     // Secret Key ve Public Key oluşturma
     const secretKey = HashUtils.sha256(secretPhrase);
