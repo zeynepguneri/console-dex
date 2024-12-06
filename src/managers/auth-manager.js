@@ -1,4 +1,4 @@
-import HashUtils from "../utils/HashUtils.js";
+import HashUtils from "../utils/hash-utils.js";
 
 class AuthManager {
   constructor() {

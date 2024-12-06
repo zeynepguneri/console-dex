@@ -1,7 +1,7 @@
 import inquirer from "inquirer";
 import AuthManager from "../managers/auth-manager.js";
-import MainMenu from "./MainMenu.js";
-import WalletMenu from "./WalletMenu.js";
+import MainMenu from "./main-menu.js";
+import WalletMenu from "./wallet-menu.js";
 
 
 async function ItuScanMenu() {
