@@ -1,4 +1,4 @@
-import AuthManager from "./src/managers/AuthManager.js";
+import AuthManager from "./src/managers/auth-manager.js";
 import inquirer from "inquirer";
 import MainMenu from "./src/menus/MainMenu.js";
 

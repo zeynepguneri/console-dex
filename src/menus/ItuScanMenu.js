@@ -1,5 +1,5 @@
 import inquirer from "inquirer";
-import AuthManager from "../managers/AuthManager.js";
+import AuthManager from "../managers/auth-manager.js";
 import MainMenu from "./MainMenu.js";
 import WalletMenu from "./WalletMenu.js";
 
