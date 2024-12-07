@@ -30,6 +30,16 @@ async function SwapMenu(pool_id) {
 
     }else if(choice === 2){
       
+      const { amount } = await inquirer.prompt([
+        {
+          type: "input",
+          name: "amount",
+          message: "Enter your " + Object.keys(pool.token_2)[0] + " amount:",
+        },
+      ]);
+      
+      await transactionManager.swap(authManager.getPrivateKey(), pool_id, Object.keys(pool.token_2)[0], parseFloat(amount));
+
     }
     else if(choice === "Return Back"){}
 }
