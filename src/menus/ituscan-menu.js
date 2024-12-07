@@ -1,23 +1,26 @@
 import inquirer from "inquirer";
-import AuthManager from "../managers/auth-manager.js";
-import MainMenu from "./main-menu.js";
 import WalletMenu from "./wallet-menu.js";
+import walletService from "../services/wallet-service.js";
+import MainMenu from "./main-menu.js";
 
 
 async function ItuScanMenu() {
+    const wallets = await walletService.getWallets();
+    const publicKeys = wallets.map((wallet) => wallet.public_key);
 
     const { choice } = await inquirer.prompt([
       {
         type: "list",
         name: "choice",
-        message: "Main Menu",
-        choices: ["0x9s1gf1f9s3..123s", "Return Main Menu"]
+        message: "Wallets",
+        choices: [...publicKeys, "Return Back"]
       }
     ]);
   
-    if (choice === "0x9s1gf1f9s3..123s") {
+    if (publicKeys.includes(choice)) {
       await WalletMenu(choice);
-    }else if(choice === "Return Main Menu"){}
+      await ItuScanMenu();
+    } else if (choice === "Return Back") {}
 }
 
 export default ItuScanMenu;

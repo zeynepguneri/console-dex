@@ -1,18 +1,28 @@
 import inquirer from "inquirer";
-
+import poolService from "../services/pool-service.js";
+import PoolMenu from "./pool-menu.js";
 
 async function PoolsMenu() {
+    const pools = await poolService.getPools();
+
+    const poolsChoices = pools.map((pool) => ({
+      name: `${Object.keys(pool.token_1)[0]} / ${Object.keys(pool.token_2)[0]}`, // tokenA / tokenB formatında
+      value: pool.id, // Seçim değeri olarak pool id'si
+    }));
     
     const { choice } = await inquirer.prompt([
       {
         type: "list",
         name: "choice",
-        message: "Wallet Menu",
-        choices: ["Return Main Menu"]
+        message: "Pools Menu",
+        choices: [...poolsChoices, "Return Back"]
       }
     ]);
-  
-    if(choice === "Return Main Menu"){}
+    
+    if (pools.some((pool) => pool.id === choice)) {
+      await PoolMenu(choice);
+      await PoolsMenu();
+    } else if(choice === "Return Back"){}
 }
 
 export default PoolsMenu;

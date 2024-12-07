@@ -1,23 +1,27 @@
 import inquirer from "inquirer";
+import walletService from "../services/wallet-service.js";
+import MainMenu from "./main-menu.js";
+import chalk from "chalk";
 
-async function WalletMenu(wallet) {
+async function WalletMenu(publicKey) {
+    const wallet = await walletService.getWalletByPublicKey(publicKey);
 
-    console.log("Balances Of: " + wallet);
-    console.log("----------------------------------------------------------------------------------------");
-    console.log("TokenA: 1234.00");
-    console.log("TokenB: 5734.00");
-    
+    Object.entries(wallet.balances).forEach(([token, amount]) => {
+      console.log(
+        `${chalk.blue.bold(token)}: ${chalk.yellow.bold(amount.toFixed(6))}`
+      );
+    });
 
     const { choice } = await inquirer.prompt([
       {
         type: "list",
         name: "choice",
         message: "Wallet Menu",
-        choices: ["Return Main Menu"]
+        choices: [{ name: "Return Back" }]
       }
     ]);
-  
-    if(choice === "Return Main Menu"){}
+
+    if(choice === "Return Back"){}
 }
 
 export default WalletMenu;

@@ -1,6 +1,8 @@
 import AuthManager from "./src/managers/auth-manager.js";
 import inquirer from "inquirer";
 import MainMenu from "./src/menus/main-menu.js";
+import transactionManager from "./src/managers/transaction-manager.js";
+
 
 console.log("Hello, Welcome to ITUChain!");
 
