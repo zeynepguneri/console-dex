@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs, query, where, doc, updateDoc } from "firebase/firestore";
+import { getFirestore, collection, getDocs, query, where, doc, updateDoc, addDoc } from "firebase/firestore";
 import * as dotenv from "dotenv";
 
 // .env dosyasını yükle
@@ -67,5 +67,19 @@ async function updateDocument(collectionName, docId, data) {
   }
 }
 
+async function addDocument(collectionName, data) {
+  try {
+    const collectionRef = collection(db, collectionName);
+    const result = await addDoc(collectionRef, data);
+    const id = result.id;
+    const docRef = doc(db, collectionName, id);
+    await updateDoc(docRef, { id });
+    return true;
+  } catch (error) {
+    console.error(`Error updating document in ${collectionName}:`, error);
+    return false;
+  }
+}
+
 // db ve yardımcı fonksiyonları dışa aktar
-export { fetchDocs, fetchDocByQuery, updateDocument };
+export { fetchDocs, fetchDocByQuery, updateDocument, addDocument };

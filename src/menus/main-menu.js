@@ -5,15 +5,24 @@ import WalletMenu from "./wallet-menu.js";
 import PoolsMenu from "./pools-menu.js";
 
 async function MainMenu() {
-  console.log("\nConnected Wallet: " + AuthManager.getCurrentWallet());
+  if (AuthManager.isLoggedIn()) {
+    console.log("\nConnected Wallet: " + AuthManager.getCurrentWallet());
+  }else{
+    console.log("Wallet not connected")
+  }
+  
   console.log("----------------------------------------------------------------------------------------");
   
+  const choices = [{ name: "My Balances", disabled: !AuthManager.isLoggedIn()}, "ITUScan", "Pools"];
+
+  AuthManager.isLoggedIn() ? choices.push("Disconnect") : choices.push("Initialize Wallet");
+
   const { choice } = await inquirer.prompt([
     {
       type: "list",
       name: "choice",
       message: "Main Menu",
-      choices: ["My Balances", "ITUScan", "Pools", "Disconnect"]
+      choices: choices
     }
   ]);
 
@@ -26,8 +35,22 @@ async function MainMenu() {
   }else if(choice === "Pools"){
     await PoolsMenu();
     await MainMenu();
-  }else if(choice === "Disconnect"){
+  }else if (choice === "Initialize Wallet"){
+
+    const { phraseKey } = await inquirer.prompt([
+      {
+        type: "input",
+        name: "phraseKey",
+        message: "Enter your secret phrase:",
+      },
+    ]);
+
+    await AuthManager.login(phraseKey);
+    await MainMenu();
+  }
+  else if(choice === "Disconnect"){
     AuthManager.disconnect();
+    await MainMenu();
   }
 }
 

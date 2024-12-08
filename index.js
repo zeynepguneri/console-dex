@@ -2,36 +2,14 @@ import AuthManager from "./src/managers/auth-manager.js";
 import inquirer from "inquirer";
 import MainMenu from "./src/menus/main-menu.js";
 import transactionManager from "./src/managers/transaction-manager.js";
+import walletService from "./src/services/wallet-service.js";
+import poolService from "./src/services/pool-service.js";
 
 
 console.log("Hello, Welcome to ITUChain!");
 
 async function startApp() {
-  if (AuthManager.isLoggedIn()) {
-    console.log("You are already logged in!");
-    await MainMenu();
-  } else {
-    console.log("You have to initialize your wallet first!");
-
-    // Kullanıcıdan secret phrase isteme
-    const { phraseKey } = await inquirer.prompt([
-      {
-        type: "input",
-        name: "phraseKey",
-        message: "Enter your secret phrase:",
-      },
-    ]);
-
-    const loggedIn = AuthManager.login(phraseKey);
-
-    if (loggedIn) {
-      console.log("Wallet successfully initialized!");
-      await MainMenu(); 
-    } else {
-      console.log("Invalid wallet phrase key. Initialization failed.");
-      process.exit(1);
-    }
-  }
+  await MainMenu()
 }
 
 // Uygulamayı başlat

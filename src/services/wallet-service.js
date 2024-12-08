@@ -1,8 +1,10 @@
-import { fetchDocs, fetchDocByQuery, updateDocument } from "../utils/firebase-helper.js";
+import { fetchDocs, fetchDocByQuery, updateDocument, addDocument } from "../utils/firebase-helper.js";
 
 async function getWallets() {
   return await fetchDocs("wallets");
 }
+
+
 
 async function getWalletByPublicKey(publicKey) {
   return await fetchDocByQuery("wallets", "public_key", publicKey);
@@ -17,8 +19,18 @@ async function updateWallet(wallet) {
   return await updateDocument("wallets", existingWallet.id, wallet);
 }
 
+async function addWallet(wallet) {
+  const existingWallet = await getWalletByPublicKey(wallet.public_key);
+  if (existingWallet) {
+    console.log("bu walletla cüzdan var");
+    return false;
+  }
+  return await addDocument("wallets", wallet);
+}
+
 export default {
   getWallets,
   getWalletByPublicKey,
   updateWallet,
+  addWallet
 };

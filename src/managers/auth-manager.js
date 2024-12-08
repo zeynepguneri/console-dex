@@ -1,3 +1,4 @@
+import walletService from "../services/wallet-service.js";
 import HashUtils from "../utils/hash-utils.js";
 
 class AuthManager {
@@ -7,9 +8,19 @@ class AuthManager {
     this.privateKey = null;
   }
 
-  login(secretPhrase) {
+  async login(secretPhrase) {
     const privateKey = HashUtils.sha256(secretPhrase);
     const publicKey = HashUtils.sha256(privateKey);
+    
+    const wallet = await walletService.getWalletByPublicKey(publicKey);
+    
+    if (!wallet) {
+      await walletService.addWallet({
+        public_key: publicKey,
+        balances: 
+          { tokenA: 100, tokenB: 100 }
+        })
+    }
 
     this.loggedIn = true;
     this.currentWallet = publicKey;
