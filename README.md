@@ -14,6 +14,8 @@
 - chalk
 - inquirer
 - crypto-js
+- dotenv
+- firebase
 
 ---
 
