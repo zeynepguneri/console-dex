@@ -1,10 +1,8 @@
-import { fetchDocs, fetchDocByQuery, updateDocument, addDocument } from "../utils/firebase-helper.js";
+import { fetchDocs, fetchDocByQuery, updateDocument, addDocument } from "../utils/firebase_helper.js";
 
 async function getWallets() {
   return await fetchDocs("wallets");
 }
-
-
 
 async function getWalletByPublicKey(publicKey) {
   return await fetchDocByQuery("wallets", "public_key", publicKey);

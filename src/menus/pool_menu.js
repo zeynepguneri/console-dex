@@ -1,9 +1,9 @@
 import inquirer from "inquirer";
-import poolService from "../services/pool-service.js";
-import SwapMenu from "./swap-menu.js";
-import AuthManager from "../managers/auth-manager.js";
+import poolService from "../services/pool_service.js";
+import SwapMenu from "./swap_menu.js";
+import AuthManager from "../managers/auth_manager.js";
 import chalk from "chalk";
-import AddLiquidityMenu from "./add-liquidity-menu.js";
+import AddLiquidityMenu from "./add_liquidity_menu.js";
 
 async function PoolMenu(pool_id) {
     const pool = await poolService.getPoolById(pool_id);
