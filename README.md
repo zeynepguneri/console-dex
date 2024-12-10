@@ -2,6 +2,15 @@
 
 **Blockchain ağı üzerindeki swap işlemlerini ve pool mekanizmalarını simüle eden konsol uygulaması.**
 
+## Kurulum ve Çalıştırma
+```bash
+git clone https://github.com/exTypen/itu-bc-console-app.git
+cd itu-bc-console-app
+npm install
+cp .env_example .env
+npm start
+```
+
 ---
 
 ## Kullanılan Teknolojiler:
