@@ -1,9 +1,9 @@
-import AuthManager from "./src/managers/auth-manager.js";
+import AuthManager from "./src/managers/auth_manager.js";
 import inquirer from "inquirer";
-import MainMenu from "./src/menus/main-menu.js";
-import transactionManager from "./src/managers/transaction-manager.js";
-import walletService from "./src/services/wallet-service.js";
-import poolService from "./src/services/pool-service.js";
+import MainMenu from "./src/menus/main_menu.js";
+import transactionManager from "./src/managers/transaction_manager.js";
+import walletService from "./src/services/wallet_service.js";
+import poolService from "./src/services/pool_service.js";
 
 
 console.log("Hello, Welcome to ITUChain!");

@@ -1,6 +1,6 @@
 import inquirer from "inquirer";
 import poolService from "../services/pool-service.js";
-import PoolMenu from "./pool-menu.js";
+import PoolMenu from "./pool_menu.js";
 
 async function PoolsMenu() {
     const pools = await poolService.getPools();

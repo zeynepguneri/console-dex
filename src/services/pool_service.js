@@ -1,4 +1,4 @@
-import { fetchDocs, fetchDocByQuery, updateDocument } from "../utils/firebase-helper.js";
+import { fetchDocs, fetchDocByQuery, updateDocument } from "../utils/firebase_helper.js";
 
 async function getPools() {
   return await fetchDocs("pools");

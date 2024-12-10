@@ -1,6 +1,6 @@
 import inquirer from "inquirer";
-import AuthManager from "../managers/auth-manager.js";
-import ItuScanMenu from "./ituscan-menu.js";
+import AuthManager from "../managers/auth_manager.js";
+import ItuScanMenu from "./ituscan_menu.js";
 import WalletMenu from "./wallet-menu.js";
 import PoolsMenu from "./pools-menu.js";
 

@@ -1,6 +1,6 @@
-import walletService from "../services/wallet-service.js";
-import poolService from "../services/pool-service.js";
-import HashUtils from "../utils/hash-utils.js";
+import walletService from "../services/wallet_service.js";
+import poolService from "../services/pool_service.js";
+import HashUtils from "../utils/hash_utils.js";
 import chalk from "chalk";
 import inquirer from "inquirer";
 

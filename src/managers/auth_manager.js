@@ -1,5 +1,5 @@
-import walletService from "../services/wallet-service.js";
-import HashUtils from "../utils/hash-utils.js";
+import walletService from "../services/wallet_service.js";
+import HashUtils from "../utils/hash_utils.js";
 
 class AuthManager {
   constructor() {
