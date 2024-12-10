@@ -1,6 +1,5 @@
 import inquirer from "inquirer";
 import walletService from "../services/wallet_service.js";
-import MainMenu from "./main_menu.js";
 import chalk from "chalk";
 
 async function WalletMenu(publicKey) {

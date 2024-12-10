@@ -67,6 +67,8 @@ async function updateDocument(collectionName, docId, data) {
   }
 }
 
+
+// Yeni doküman ekleme
 async function addDocument(collectionName, data) {
   try {
     const collectionRef = collection(db, collectionName);
