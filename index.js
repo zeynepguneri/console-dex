@@ -1,5 +1,5 @@
+#!/usr/bin/env node
 import MainMenu from "./src/menus/main_menu.js";
-
 
 console.log("Hello, Welcome to ITUChain!");
 
