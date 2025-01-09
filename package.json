@@ -20,5 +20,8 @@
     "dotenv": "^16.4.7",
     "firebase": "^11.0.2",
     "inquirer": "^12.1.0"
+  },
+  "devDependencies": {
+    "hardhat": "^2.22.17"
   }
 }
