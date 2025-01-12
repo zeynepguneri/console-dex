@@ -2,7 +2,7 @@
   "name": "itu-bc-console-app",
   "version": "1.0.0",
   "bin": {
-    "itu-bc-console-app": "./index.js"
+    "itu-bc-console-app": "index.js"
   },
   "description": "Blockchain ağı üzerindeki swap işlemlerini ve pool mekanizmalarını simüle eden konsol uygulaması.",
   "type": "module",
@@ -23,5 +23,13 @@
   },
   "devDependencies": {
     "hardhat": "^2.22.17"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zeynepguneri/console-dex.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zeynepguneri/console-dex/issues"
+  },
+  "homepage": "https://github.com/zeynepguneri/console-dex#readme"
 }

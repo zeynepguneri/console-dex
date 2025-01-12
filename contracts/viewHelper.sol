@@ -3,6 +3,7 @@
 pragma solidity ^0.8.26;
 
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import   "./poolFactory.sol";
 
 contract viewHelper {
     function viewUserBalance(address token, address user) public view returns (uint256) {

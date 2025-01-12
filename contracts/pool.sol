@@ -62,13 +62,13 @@ contract Pool {
         K = poolBalance_Chikorita * poolBalance_Cynda;
     }
 
-    function removeLiquidity() external {
-        return;
-    }
+    // function removeLiquidity() external {
+    //     return;
+    // }
 
-    function swap() external {
-        return;
-    }
+    // function swap() external {
+    //     return;
+    // }
 
     function showPoolBalance() public view returns (uint256, uint256) {
         return (poolBalance_Chikorita, poolBalance_Cynda);
