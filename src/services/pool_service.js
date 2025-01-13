@@ -1,5 +1,9 @@
 import { ethers } from "hardhat";
-import PoolFactoryABI from "../../contracts/PoolFactory.json"
+
+const poolFactoryAddress = process.env.CONTRACT_ADRRESS;
+const PoolFactoryABI = process.env.CONTRACT_ABI;
+
+
 
 const createPoolService = (poolFactoryAddress, providerOrSigner) => {
   // Create an instance of the PoolFactory contract
